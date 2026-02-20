@@ -3,7 +3,7 @@ Version: 1.0
 Section: graphics
 Priority: optional
 Architecture: amd64
-Depends: libcairo2, libpng16-16
+Depends: libcairo2, libpng16-16, shared-mime-info
 Maintainer: IAdventurer01 <iadventurer01@gmail.com>
 Description: PES embroidery file thumbnailer
  Generates thumbnails for Brother PES embroidery files using pesconvert.
