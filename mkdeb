@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# First let's compile pesconvert
+git clone https://github.com/torvalds/pesconvert.git src
+cd src
+make
+
+# Make the .deb file
+cd ../
+rm -rf build
+mkdir -p build/DEBIAN
+mkdir -p build/usr/local/bin
+mkdir -p build/usr/share/mime/packages
+mkdir -p build/usr/share/thumbnailers
+
+cp control build/DEBIAN/
+cp src/pesconvert build/usr/local/bin/pesconvert
+cp src/PES-Mime.xml build/usr/share/mime/packages/PES-Mime.xml
+cp src/PES.thumbnailer build/usr/share/thumbnailers/PES.thumbnailer
+
+dpkg --build build pes-thumbnailer.deb
+
